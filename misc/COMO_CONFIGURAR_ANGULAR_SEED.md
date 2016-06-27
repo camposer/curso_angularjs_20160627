@@ -32,11 +32,11 @@ https_proxy=usuario:clave@proxy.company.com:puerto
 3.- Instalar dependencias para entorno de programación:
 
 ```
-> npm install -g grunt-cli bower
+> npm install -g bower
 ```
 
-- Grunt: Soporte a construcción del proyecto 
-- Bower: Descarga de dependencias
+- Grunt: Soporte la construcción del proyecto 
+- Bower: Gestión de dependencias
 
 4.- Descargar y configurar Angular Seed
 
@@ -45,10 +45,10 @@ https_proxy=usuario:clave@proxy.company.com:puerto
 
 ```
 > npm install
-> grunt serve
+> npm start
 ```
 
-Abrir navegador: http://localhost:9000
+Abrir navegador: http://localhost:8000
 
 
 
