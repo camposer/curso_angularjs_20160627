@@ -19,8 +19,8 @@
 	<ul>
 		<li ng-repeat="producto in productos | orderBy:'-precio'" ng-click="mensajeProducto(producto)">
 			<span ng-class="{ 'fondo-verde':true, 'letras-rojas':isProductoAgotado(producto) }">
-			nombre = {{::producto.nombre}}<br>
-			precio = {{::producto.precio | currency:'€'}}
+			nombre = {{producto.nombre}}<br>
+			precio = {{producto.precio | currency:'€'}}
 			</span>
 		</li>
 	<ul>
@@ -42,12 +42,8 @@
 				$scope.producto = { };
 				
 				$scope.agregarProducto = function() {
-					// Forzando asincronía
-					setTimeout(function() {
-						$rootScope.productos.push($scope.producto);
-						$scope.$apply(); // Refresca los cambios en la vista
-					}, 1000);
-					$scope.producto = {};
+					$rootScope.productos.push(angular.copy($scope.producto));
+					//$scope.producto = {};
 				};
 
 				$scope.mensajeProducto = function(producto) {
