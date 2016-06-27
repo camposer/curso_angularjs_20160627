@@ -9,7 +9,7 @@
 				templateUrl: 'producto/index.html',
 				controller: 'ProductoCtrl'
 			});
-		});
+		}]);
 
 
 })();
