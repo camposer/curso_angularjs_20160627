@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script>
+			var holaMundo = function(nombre) {
+				window.alert('Hola ' +  nombre);
+			}
+
+			var helloWorld = function(nombre) {
+				window.alert('Hello ' +  nombre);
+			}
+
+			var saludar = function(callback, nombre) {
+				callback(nombre);
+			}
+
+			saludar(holaMundo, 'Rodolfo');
+			saludar(helloWorld, 'John');
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

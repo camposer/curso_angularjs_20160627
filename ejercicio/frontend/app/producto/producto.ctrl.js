@@ -3,25 +3,18 @@
 (function() {
 	angular
 		.module('tienda.producto')
-		.controller('ProductoCtrl', [ '$scope', ProductoCtrl ]);
+		.controller('ProductoCtrl', [ '$scope', 'ProductoService', ProductoCtrl ]);
 
-	function ProductoCtrl($scope) {
+	function ProductoCtrl($scope, productoService) {
 		var modificar = false;
 
-		$scope.productos = [
-			{
-				nombre: 'TV',
-				precio: 700
-			},
-			{
-				nombre: 'Cámara',
-				precio: 400
-			},
-			{
-				nombre: 'PS4',
-				precio: 350
-			}
-		];
+		var init = function() {
+			productoService.obtenerTodos(function(resp) {
+				$scope.productos = resp.data;
+			});
+		};
+
+		init();
 
 		$scope.guardar = function(form) {
 			$scope.mensajes = {
