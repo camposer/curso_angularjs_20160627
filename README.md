@@ -50,3 +50,5 @@
 	- http://karma-runner.github.io/0.12/index.html
 - Yeoman
 	- http://yeoman.io/
+- AngularJS Data Model
+	- http://www.webdeveasy.com/angularjs-data-model/
