@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module('tienda.compra')
-		.controller('CatalogoCtrl', [ '$scope', '$rootScope', 'ProductoService', CatalogoCtrl ]);
+		.controller('CatalogoCtrl', [ '$scope', '$location', 'ProductoService', 'CarritoService', CatalogoCtrl ]);
 
-	function CatalogoCtrl($scope, $rootScope, productoService) {
+	function CatalogoCtrl($scope, $location, productoService, carritoService) {
 		var init = function() {
 			productoService.obtenerTodos(function(resp) {
 				$scope.productos = resp.data;
@@ -41,8 +41,8 @@
 			}
 
 			if ($scope.mensajes.error.length == 0) {
-				// FIXME Contar repetidos y sumar
-				$rootScope.carrito = productosCarrito;
+				carritoService.agregar(productosCarrito);
+				$location.path('/carrito');
 			}
 		};
 	}

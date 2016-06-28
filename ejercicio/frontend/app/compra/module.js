@@ -2,7 +2,7 @@
 
 (function() {
 	angular
-		.module('tienda.compra', [ 'ngRoute' ])
+		.module('tienda.compra', [ ])
 		.config([ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/catalogo', {
 				templateUrl: 'compra/catalogo.html',

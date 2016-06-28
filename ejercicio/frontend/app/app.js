@@ -4,9 +4,12 @@ var closure = function() {
 
 	// Declare app level module which depends on views, and components
 	angular.module('tienda', [
+	  // vendor
 	  'ngRoute',
-	  'ngBootbox',
+	  'ngBootbox',	
+	  'ngStorage',
 
+	  // app
 	  'tienda.producto',
 	  'tienda.compra'
 	]).

@@ -21,11 +21,15 @@
   	</tr>
   </thead>
   <tbody>
-  	<tr ng-repeat="producto in carrito">
+  	<tr ng-repeat="producto in carrito.productos">
   		<td>{{::producto.nombre}}</td>
   		<td>{{::producto.precio}}</td>
   		<td>{{::producto.cantidad}}</td>
-  		<td>{{::producto.total}}</td>
+  		<td>{{::producto.total | currency:'€'}}</td>
+  	</tr>
+  	<tr>
+  		<td colspan="3"></td>
+  		<td>{{::carrito.total | currency:'€'}}</td>
   	</tr>
   </tbody>
 </table>
