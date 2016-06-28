@@ -1,0 +1,31 @@
+<h1>Tienda de artículos electrónicos</h1>
+
+<div ng-show="mensajes.error.length > 0" class="alert alert-danger">
+	<ul>
+		<li ng-repeat="m in mensajes.error">{{m}}</li>
+	</ul>
+</div>
+<div ng-show="mensajes.success.length > 0" class="alert alert-success">
+	<ul>
+		<li ng-repeat="m in mensajes.success">{{m}}</li>
+	</ul>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  	<tr>
+  		<th>Nombre</th>
+  		<th>Precio</th>
+  		<th>Cantidad</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr ng-repeat="producto in productos">
+  		<td>{{::producto.nombre}}</td>
+  		<td>{{::producto.precio}}</td>
+  		<td><input type="number" ng-model="producto.cantidad"></td>
+  	</tr>
+  </tbody>
+</table>
+
+<button type="button" ng-click="aceptar()">Aceptar</button>

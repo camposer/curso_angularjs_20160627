@@ -6,12 +6,14 @@ var closure = function() {
 	angular.module('tienda', [
 	  'ngRoute',
 	  'ngBootbox',
-	  'tienda.producto'
+
+	  'tienda.producto',
+	  'tienda.compra'
 	]).
 	config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 	  $locationProvider.hashPrefix('!');
 
-	  $routeProvider.otherwise({redirectTo: '/producto'});
+	  $routeProvider.otherwise({redirectTo: '/catalogo'});
 	}]);
 
 };
