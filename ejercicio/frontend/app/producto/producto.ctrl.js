@@ -6,8 +6,6 @@
 		.controller('ProductoCtrl', [ '$scope', 'ProductoService', ProductoCtrl ]);
 
 	function ProductoCtrl($scope, productoService) {
-		var modificar = false;
-
 		var init = function() {
 			productoService.obtenerTodos(function(resp) {
 				$scope.productos = resp.data;
@@ -29,24 +27,32 @@
 				$scope.mensajes.error.push('Precio inválido');
 
 			if ($scope.mensajes.error.length == 0) {
-				if (modificar)
-					$scope.$apply();
-				else
-					$scope.productos.push(producto);
+				var success = function() {
+					$scope.mensajes.success.push('Producto agregado');
+					$scope.producto = {};
+					init();					
+				};
 
-				$scope.mensajes.success.push('Producto agregado');
-				$scope.producto = {};
+				var error = function(resp) {
+					//var mensaje = resp.data;
+					$scope.mensajes.error.push('Error al agregar');
+				}
+
+				if ($scope.producto.id)
+					productoService
+						.modificar($scope.producto, success, error);
+				else
+					productoService
+						.agregar($scope.producto, success, error);
 			}
 		};
 	
 		$scope.eliminar = function(p) {
-			var idx = $scope.productos.indexOf(p);
-			$scope.productos.splice(idx, 1);
+			productoService.eliminar(p.id, init);
 		};
 
 		$scope.mostrar = function(p) {
 			$scope.producto = p;
-			modificar = true;
 		}
 	}
 
