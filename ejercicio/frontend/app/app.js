@@ -5,7 +5,7 @@ var closure = function() {
 	// Declare app level module which depends on views, and components
 	angular.module('tienda', [
 	  // vendor
-	  'ngRoute',
+	  'ui.router',
 	  'ngBootbox',	
 	  'ngStorage',
 	  'chart.js',
@@ -15,10 +15,9 @@ var closure = function() {
 	  'tienda.compra',
 	  'tienda.comun'
 	]).
-	config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-	  $locationProvider.hashPrefix('!');
-
-	  $routeProvider.otherwise({redirectTo: '/catalogo'});
+	config(['$urlRouterProvider', function($urlRouterProvider, $locationProvider) {
+	  $urlRouterProvider.otherwise("/catalog");
+	  // $locationProvider.html5Mode(true);
 	}]);
 
 };

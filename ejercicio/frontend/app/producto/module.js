@@ -3,9 +3,10 @@
 (function() {
 
 	angular
-		.module('tienda.producto', [ 'ngRoute' ])
-		.config(['$routeProvider', function($routeProvider) {
-			$routeProvider.when('/producto', {
+		.module('tienda.producto', [ ])
+		.config(['$stateProvider', function($stateProvider) {
+			$stateProvider.state('producto', {
+				url: '/product',
 				templateUrl: 'producto/index.html',
 				controller: 'ProductoCtrl'
 			});

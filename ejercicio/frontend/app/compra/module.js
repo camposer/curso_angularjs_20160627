@@ -3,18 +3,21 @@
 (function() {
 	angular
 		.module('tienda.compra', [ ])
-		.config([ '$routeProvider', function($routeProvider) {
-			$routeProvider.when('/catalogo', {
+		.config([ '$stateProvider', function($stateProvider) {
+			$stateProvider.state('catalogo', {
+				url: '/catalog',
 				templateUrl: 'compra/catalogo.html',
 				controller: 'CatalogoCtrl'
 			});
 
-			$routeProvider.when('/carrito', {
+			$stateProvider.state('carrito', {
+				url: '/shopping-car',
 				templateUrl: 'compra/carrito.html',
 				controller: 'CarritoCtrl'
 			});
 
-			$routeProvider.when('/reporte', {
+			$stateProvider.state('reporte', {
+				url: '/report',
 				templateUrl: 'compra/reporte.html',
 				controller: 'ReporteCtrl'
 			});
