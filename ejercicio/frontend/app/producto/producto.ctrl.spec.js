@@ -49,4 +49,21 @@ describe('ProductoCtrl unit test', function () {
     expect(scope.productos.length).toEqual(3);
   });
 
+  it('Cuando agrego entonces...', function () {
+    var form = { nombre: {}, precio: {} };
+    scope.producto = {
+      nombre: 'na',
+      precio: 2
+    };
+
+    var tamanioInicial = scope.productos.length;
+
+    scope.guardar(form);
+    scope.$digest();
+
+    expect(scope.mensajes.success.length).toBeGreaterThan(0);
+    expect(scope.producto).toEqual({});
+    expect(scope.productos.length).toBe(tamanioInicial + 1);
+  });
+
 });
