@@ -92,4 +92,11 @@ POST /compras
     "cantidad": 3
 }
 ```
+0. Implementar una directiva para el manejo de mensajes de error. El resultado debe ser algo como:
+```
+<mensaje src="ctrl.mensaje"></mensaje>
+```
+0. Cambiar el manejo de rutas, actualmente con ngRoute, por ui-router. Ver: https://github.com/angular-ui/ui-router
+0. Implementar las pruebas unitarias de agregar y eliminar de ProductoController. 
+NOTA: Recuerde que para ejecutar: `npm test`
 
