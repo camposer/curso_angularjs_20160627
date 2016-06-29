@@ -13,18 +13,18 @@
 		init();
 
 		$scope.comprar = function() {
-			var chain = $q.when();
+			var promises = [];
 
 			for (var i in $scope.carrito.productos) {
 				var prod = $scope.carrito.productos[i];
-				chain = chain.then(compraService.comprar({
+				promises.push(compraService.comprar({
 					productoId: prod.id,
 					nombre: prod.nombre,
 					cantidad: prod.cantidad
 				}));
 			}
 
-			chain.then(function() {
+			$q.all(promises).then(function() {
 			 	carritoService.limpiar();
 			 	init();
 			});
