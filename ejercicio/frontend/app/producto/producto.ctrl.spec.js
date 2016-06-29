@@ -4,7 +4,8 @@ describe('ProductoCtrl unit test', function () {
   var controller,
     indexCtrl,
     scope,
-    productoServiceDummy;
+    productoServiceDummy,
+    Mensajes;
 
   beforeEach(module('tienda'));
 
@@ -16,6 +17,7 @@ describe('ProductoCtrl unit test', function () {
     // inyectar el $httpBackend y dar respuesta (estática) a cada una de las peticiones
     // angular inyecta el $httpBackend en lugar del $http de forma automática
     productoServiceDummy = $injector.get('ProductoServiceDummy');
+    Mensajes = $injector.get('MensajesFactory');
 
     productoServiceDummy.agregar({
         id: 1,
@@ -35,7 +37,8 @@ describe('ProductoCtrl unit test', function () {
 
     indexCtrl = $controller('ProductoCtrl', {
       $scope: scope,
-      'ProductoService': productoServiceDummy
+      ProductoService: productoServiceDummy,
+      Mensajes: Mensajes
     });
 
     scope.$digest(); // Obliga la actualización del scope a partir de las promesas pendientes por ejecución

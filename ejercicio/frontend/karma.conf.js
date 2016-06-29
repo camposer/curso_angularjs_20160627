@@ -13,7 +13,11 @@ module.exports = function(config) {
       'constant.js',
 
       'producto/module.js',
-      'producto/*.js'
+      'producto/*.js',
+
+      'comun/module.js',
+      'comun/*.js'
+
     ],
 
     autoWatch: true,

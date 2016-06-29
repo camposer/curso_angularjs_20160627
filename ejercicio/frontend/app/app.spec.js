@@ -2,6 +2,7 @@
 
 (function() {
 	angular.module('tienda', [
-		'tienda.producto'
+		'tienda.producto',
+		'tienda.comun'
 	]);
 })();
