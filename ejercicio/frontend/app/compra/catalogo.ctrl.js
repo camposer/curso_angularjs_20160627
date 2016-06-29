@@ -33,6 +33,7 @@
 				}
 				else if (prod.cantidad) {
 					productosCarrito.push({
+						id: prod.id,
 						nombre: prod.nombre,
 						precio: prod.precio,
 						cantidad: prod.cantidad

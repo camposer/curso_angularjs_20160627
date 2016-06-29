@@ -14,5 +14,9 @@
 				controller: 'CarritoCtrl'
 			});
 
+			$routeProvider.when('/reporte', {
+				templateUrl: 'compra/reporte.html',
+				controller: 'ReporteCtrl'
+			});
 		}]);
 })();

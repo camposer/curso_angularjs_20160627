@@ -52,3 +52,10 @@
 	- http://yeoman.io/
 - AngularJS Data Model
 	- http://www.webdeveasy.com/angularjs-data-model/
+- Directivas personalizadas
+	- https://docs.angularjs.org/guide/directive
+	- http://www.ng-newsletter.com/posts/directives.html
+- Routing
+	- https://docs.angularjs.org/api/ngRoute/service/$route
+	- https://github.com/angular-ui/ui-router
+	- http://stackoverflow.com/questions/21023763/difference-between-angular-route-and-angular-ui-router

@@ -8,6 +8,7 @@ var closure = function() {
 	  'ngRoute',
 	  'ngBootbox',	
 	  'ngStorage',
+	  'chart.js',
 
 	  // app
 	  'tienda.producto',
