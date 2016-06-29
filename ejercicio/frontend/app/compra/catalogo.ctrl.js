@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module('tienda.compra')
-		.controller('CatalogoCtrl', [ '$scope', '$location', 'ProductoService', 'CarritoService', CatalogoCtrl ]);
+		.controller('CatalogoCtrl', [ '$scope', '$location', 'ProductoService', 'CarritoService', 'MensajesFactory', CatalogoCtrl ]);
 
-	function CatalogoCtrl($scope, $location, productoService, carritoService) {
+	function CatalogoCtrl($scope, $location, productoService, carritoService, Mensajes) {
 		var init = function() {
 			productoService.obtenerTodos(function(resp) {
 				$scope.productos = resp.data;
@@ -15,10 +15,7 @@
 		init();
 
 		$scope.aceptar = function() {
-			$scope.mensajes = {
-				error: [],
-				success: []
-			};
+			$scope.mensajes = new Mensajes();
 
 			var productosCarrito = [];
 			for (var i in $scope.productos) {

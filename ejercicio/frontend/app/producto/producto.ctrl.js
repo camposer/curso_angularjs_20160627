@@ -3,9 +3,10 @@
 (function() {
 	angular
 		.module('tienda.producto')
-		.controller('ProductoCtrl', [ '$scope', 'ProductoService', ProductoCtrl ]);
+		.controller('ProductoCtrl', [ '$scope', 
+			'ProductoService', 'MensajeFactory', ProductoCtrl ]);
 
-	function ProductoCtrl($scope, productoService) {
+	function ProductoCtrl($scope, productoService, Mensajes) {
 		var init = function() {
 			productoService.obtenerTodos(function(resp) {
 				$scope.productos = resp.data;
@@ -15,10 +16,7 @@
 		init();
 
 		$scope.guardar = function(form) {
-			$scope.mensajes = {
-				error: [],
-				success: []
-			};
+			$scope.mensajes = new Mensajes();
 
 			if (form.nombre.$invalid)
 				$scope.mensajes.error.push( 'Nombre inválido');

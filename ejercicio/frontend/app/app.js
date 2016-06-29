@@ -12,7 +12,8 @@ var closure = function() {
 
 	  // app
 	  'tienda.producto',
-	  'tienda.compra'
+	  'tienda.compra',
+	  'tienda.comun'
 	]).
 	config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 	  $locationProvider.hashPrefix('!');
