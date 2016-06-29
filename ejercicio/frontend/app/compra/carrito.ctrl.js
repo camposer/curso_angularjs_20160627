@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module('tienda.compra')
-		.controller('CarritoCtrl', [ '$scope', 'CarritoService', 'CompraService', CarritoCtrl ]);
+		.controller('CarritoCtrl', [ '$scope', '$q', 'CarritoService', 'CompraService', CarritoCtrl ]);
 
-	function CarritoCtrl($scope, carritoService, compraService) {
+	function CarritoCtrl($scope, $q, carritoService, compraService) {
 		var init = function() {
 			$scope.carrito = carritoService.obtener();
 		};
@@ -13,24 +13,21 @@
 		init();
 
 		$scope.comprar = function() {
-			// TODO Manejar cola de eventos asíncronos
-			// var defer = $q.defer();
-			// var promises = [];
+			var chain = $q.when();
 
 			for (var i in $scope.carrito.productos) {
 				var prod = $scope.carrito.productos[i];
-				promises.push(compraService.comprar({
+				chain = chain.then(compraService.comprar({
 					productoId: prod.id,
 					nombre: prod.nombre,
 					cantidad: prod.cantidad
 				}));
 			}
 
-			// defer.resolve();
-
-			// defer.then(function() {
-			// 	carritoService.limpiar();
-			// });
+			chain.then(function() {
+			 	carritoService.limpiar();
+			 	init();
+			});
 		};
 
 	}

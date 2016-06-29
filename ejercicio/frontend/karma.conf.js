@@ -9,13 +9,11 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
 
-      'app/app.spec.js',
-      'app/constants.js',
+      'app.spec.js',
+      'constant.js',
 
-      'app/comun/**/*.js',
-
-      'app/producto/module.js',
-      'app/producto/**/*.js'
+      'producto/module.js',
+      'producto/*.js'
     ],
 
     autoWatch: true,

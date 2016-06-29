@@ -4,8 +4,7 @@ describe('ProductoCtrl unit test', function () {
   var controller,
     indexCtrl,
     scope,
-    productoServiceDummy,
-    MensajesFactory;
+    productoServiceDummy;
 
   beforeEach(module('tienda'));
 
@@ -13,7 +12,6 @@ describe('ProductoCtrl unit test', function () {
     scope = $rootScope.$new();
 
     controller = $controller;
-    MensajesFactory = $injector.get('MensajesFactory');
     // En lugar de implementar un dummy de ProductoService, pudimos
     // inyectar el $httpBackend y dar respuesta (estática) a cada una de las peticiones
     // angular inyecta el $httpBackend en lugar del $http de forma automática
@@ -37,8 +35,7 @@ describe('ProductoCtrl unit test', function () {
 
     indexCtrl = $controller('ProductoCtrl', {
       $scope: scope,
-      'ProductoService': productoServiceDummy,
-      'MensajesFactory': MensajesFactory
+      'ProductoService': productoServiceDummy
     });
 
     scope.$digest(); // Obliga la actualización del scope a partir de las promesas pendientes por ejecución

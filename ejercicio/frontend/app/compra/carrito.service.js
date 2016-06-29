@@ -26,6 +26,10 @@
 		this.obtener = function() {
 			return $sessionStorage.carrito;
 		};
+
+		this.limpiar = function() {
+			$sessionStorage.carrito = null;
+		};
 	}
 
 })();
