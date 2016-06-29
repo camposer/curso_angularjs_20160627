@@ -4,7 +4,7 @@
 	angular
 		.module('tienda.producto')
 		.controller('ProductoCtrl', [ '$scope', 
-			'ProductoService', 'MensajeFactory', ProductoCtrl ]);
+			'ProductoService', 'MensajesFactory', ProductoCtrl ]);
 
 	function ProductoCtrl($scope, productoService, Mensajes) {
 		var init = function() {

@@ -3,9 +3,9 @@
 (function() {
 	angular
 		.module('tienda.comun')
-		.factory('MensajeFactory', MensajeFactory);
+		.factory('MensajesFactory', MensajesFactory);
 
-	function MensajeFactory() {
+	function MensajesFactory() {
 		
 		function Mensajes() {
 			this.error = [];
